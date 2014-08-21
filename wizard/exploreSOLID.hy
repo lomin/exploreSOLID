@@ -3,7 +3,7 @@
         [os]
         [os [pardir]]
         [os.path [abspath join]]
-        [bottle [Bottle run]])
+        [bottle [Bottle run template]])
 
 (defn add-whitespace [a b]
   (+ a " " b))
@@ -24,6 +24,9 @@
 
 (with-decorator (.route app "/hans")
   (defn hans-route [] "Hello my Hans!"))
+
+(with-decorator (.route app "/")
+  (defn wizard-start [] (apply template ["hello_template"] {"name" "test"})))
 
 (apply run [app] {"host" "localhost"
             "port" 8090
