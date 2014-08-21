@@ -12,3 +12,4 @@ build
 gradlew
 gradlew.bat
 gradle/
+*.pyc
