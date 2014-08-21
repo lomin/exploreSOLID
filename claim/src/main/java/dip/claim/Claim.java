@@ -16,11 +16,12 @@ public class Claim {
         return date;
     }
 
-    public void render(ClaimRenderer renderer, DateTime time, int price) {
+    public void render(ClaimRenderer renderer, DateTime time, int price, String brand) {
         renderer.render(
                 template
                         .replaceAll("#year#", String.valueOf(time.getYear()))
-                        .replaceAll("#price#", String.valueOf(price) + "€"));
+                        .replaceAll("#price#", String.valueOf(price) + "€")
+                        .replaceAll("#brand#", brand));
     }
 
     public static interface ClaimRenderer {
