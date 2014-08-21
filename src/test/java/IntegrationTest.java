@@ -17,22 +17,22 @@ public class IntegrationTest {
     @Test
     public void integrationTest() throws Exception {
         Product.Renderer renderer = Mockito.mock(Product.Renderer.class);
-        Product product = new Product();
+        Product product = new Product("Boss");
         Variation v1 = new Variation();
         v1.setPrice(3);
-        v1.addClaim(new Claim("Nur #price# heute!", DATE_2014_01_01));
-        v1.addClaim(new Claim("Nur #price# für #year#!", DATE_2013_01_01));
+        v1.addClaim(new Claim("Nur #price# heute für #brand#-Produkte!", DATE_2014_01_01));
+        v1.addClaim(new Claim("Alle #brand#-Produkte: Nur #price# für #year#!", DATE_2013_01_01));
         product.addVariation(v1);
         Variation v2 = new Variation();
         v2.setPrice(5);
-        v2.addClaim(new Claim("Unschlagbare #price# nur dieses Jahr!", DATE_2013_01_01));
-        v2.addClaim(new Claim("#price# im Jahr #year#!", DATE_2014_01_01));
+        v2.addClaim(new Claim("Unschlagbare #price# für #brand#-Produkte nur dieses Jahr!", DATE_2013_01_01));
+        v2.addClaim(new Claim("Alle #brand#-Produkte: #price# im Jahr #year#!", DATE_2014_01_01));
         product.addVariation(v2);
 
         product.render(renderer, DATE_2014_01_01);
 
-        verify(renderer).render("Nur 3€ heute!");
-        verify(renderer).render("5€ im Jahr 2014!");
+        verify(renderer).render("Nur 3€ heute für Boss-Produkte!");
+        verify(renderer).render("Alle Boss-Produkte: 5€ im Jahr 2014!");
         verifyNoMoreInteractions(renderer);
     }
 }

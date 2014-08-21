@@ -14,17 +14,14 @@ public class Claim implements Variation.Renderable {
         this.date = dateTime;
     }
 
-    public DateTime getDate() {
-        return date;
-    }
-
     @Override
-    public void render(Product.Renderer renderer, DateTime time, int price) {
+    public void render(Product.Renderer renderer, DateTime time, int price, String brand) {
         if (time.equals(date)) {
             renderer.render(
                     template
                             .replaceAll("#year#", String.valueOf(time.getYear()))
-                            .replaceAll("#price#", String.valueOf(price) + "€"));
+                            .replaceAll("#price#", String.valueOf(price) + "€")
+                            .replaceAll("#brand#", brand));
         }
     }
 }

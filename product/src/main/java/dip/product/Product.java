@@ -7,10 +7,11 @@ import java.util.List;
 
 public class Product {
 
+    private final String brand;
     private List<Renderable> variations = new ArrayList<>();
 
-    public List<Renderable> getVariations() {
-        return variations;
+    public Product(String brand) {
+        this.brand = brand;
     }
 
     public void addVariation(Renderable variation) {
@@ -19,12 +20,12 @@ public class Product {
 
     public void render(Renderer renderer, DateTime time) {
         for (Renderable variation : variations) {
-            variation.render(renderer, time);
+            variation.render(renderer, time, brand);
         }
     }
 
     public static interface Renderable {
-        void render(Renderer r, DateTime time);
+        void render(Renderer r, DateTime time, String brand);
     }
 
     public static class Renderer {

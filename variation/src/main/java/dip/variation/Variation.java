@@ -20,13 +20,13 @@ public class Variation implements Product.Renderable {
     }
 
     @Override
-    public void render(Product.Renderer r, DateTime time) {
+    public void render(Product.Renderer r, DateTime time, String brand) {
         for (Renderable claim : claims) {
-            claim.render(r, time, price);
+            claim.render(r, time, price, brand);
         }
     }
 
     public static interface Renderable {
-        void render(Product.Renderer renderer, DateTime time, int price);
+        void render(Product.Renderer renderer, DateTime time, int price, String brand);
     }
 }
