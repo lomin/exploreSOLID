@@ -1,9 +1,13 @@
 import dip.claim.Claim;
+import dip.product.Product;
+import dip.variation.Variation;
 import org.joda.time.DateTime;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 
 public class IntegrationTest {
 
@@ -12,7 +16,7 @@ public class IntegrationTest {
 
     @Test
     public void integrationTest() throws Exception {
-        Renderer renderer = mock(Renderer.class);
+        Product.Renderer renderer = Mockito.mock(Product.Renderer.class);
         Product product = new Product();
         Variation v1 = new Variation();
         v1.setPrice(3);
@@ -29,5 +33,6 @@ public class IntegrationTest {
 
         verify(renderer).render("Nur 3€ heute!");
         verify(renderer).render("5€ im Jahr 2014!");
+        verifyNoMoreInteractions(renderer);
     }
 }

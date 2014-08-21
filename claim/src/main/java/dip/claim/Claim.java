@@ -1,8 +1,10 @@
 package dip.claim;
 
+import dip.product.Product;
+import dip.variation.Variation;
 import org.joda.time.DateTime;
 
-public class Claim {
+public class Claim implements Variation.Renderable {
 
     private final DateTime date;
     private final String template;
@@ -16,15 +18,13 @@ public class Claim {
         return date;
     }
 
-    public void render(ClaimRenderer renderer, DateTime time, int price) {
-        renderer.render(
-                template
-                        .replaceAll("#year#", String.valueOf(time.getYear()))
-                        .replaceAll("#price#", String.valueOf(price) + "€"));
-    }
-
-    public static interface ClaimRenderer {
-
-        void render(String string);
+    @Override
+    public void render(Product.Renderer renderer, DateTime time, int price) {
+        if (time.equals(date)) {
+            renderer.render(
+                    template
+                            .replaceAll("#year#", String.valueOf(time.getYear()))
+                            .replaceAll("#price#", String.valueOf(price) + "€"));
+        }
     }
 }
