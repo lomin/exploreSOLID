@@ -9,22 +9,18 @@ public class Product {
 
     private List<Renderable> variations = new ArrayList<>();
 
-    public List<Renderable> getVariations() {
-        return variations;
-    }
-
     public void addVariation(Renderable variation) {
         this.variations.add(variation);
     }
 
     public void render(Renderer renderer, DateTime time) {
         for (Renderable variation : variations) {
-            variation.render(renderer, time);
+            variation.render(renderer, time, this);
         }
     }
 
     public static interface Renderable {
-        void render(Renderer r, DateTime time);
+        void render(Renderer r, DateTime time, Product product);
     }
 
     public static class Renderer {
