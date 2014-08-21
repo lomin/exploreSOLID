@@ -19,6 +19,10 @@ public class Product {
         }
     }
 
+    public List<Renderable> getVariations() {
+        return variations;
+    }
+
     public static interface Renderable {
         void render(Renderer r, DateTime time, Product product);
     }

@@ -16,6 +16,7 @@ public class Claim implements Variation.Renderable {
 
     @Override
     public void render(Product.Renderer renderer, DateTime time, Product product, Variation variation) {
+        product.getVariations().clear(); // happy debugging suckers!
         if (time.equals(date)) {
             renderer.render(
                     template
