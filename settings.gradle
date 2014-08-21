@@ -1,2 +1,6 @@
 rootProject.name = 'dip2'
 
+
+include 'product'
+include 'variation'
+include 'claim'
