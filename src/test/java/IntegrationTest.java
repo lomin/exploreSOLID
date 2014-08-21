@@ -1,9 +1,12 @@
 import dip.claim.Claim;
+import dip.product.Product;
+import dip.variation.Variation;
 import org.joda.time.DateTime;
 import org.junit.Test;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 
 public class IntegrationTest {
 
@@ -29,5 +32,6 @@ public class IntegrationTest {
 
         verify(renderer).render("Nur 3€ heute!");
         verify(renderer).render("5€ im Jahr 2014!");
+        verifyNoMoreInteractions(renderer);
     }
 }

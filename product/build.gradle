@@ -8,6 +8,7 @@ repositories {
 
 dependencies {
     compile project(':variation')
+    compile project(':claim')
 
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }

@@ -1,3 +1,5 @@
+package dip.variation;
+
 import dip.claim.Claim;
 import org.joda.time.DateTime;
 
