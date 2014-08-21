@@ -3,7 +3,7 @@
         [os]
         [os [pardir]]
         [os.path [abspath join]]
-        [bottle [Bottle route run]])
+        [bottle [Bottle run]])
 
 (defn add-whitespace [a b]
   (+ a " " b))
@@ -14,12 +14,17 @@
   (apply .call [subprocess (+"./gradlew " (reduce add-whitespace args))] {"shell" true})
   (cd path))
 
-(gradle "clean" "test")
+(defn run-gradle []
+  (gradle "clean" "test"))
 
 (defn checkout [branch]
   (git "checkout" branch))
 
-(apply run [(Bottle)] {"host" "localhost"
-            "port" 8080
-            "debug" false})
+(def app (Bottle))
 
+(with-decorator (.route app "/hans")
+  (defn hans-route [] "Hello my Hans!"))
+
+(apply run [app] {"host" "localhost"
+            "port" 8090
+            "debug" false})
