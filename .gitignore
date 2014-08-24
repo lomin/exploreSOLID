@@ -9,6 +9,5 @@ build
 *.settings
 *.project
 .gradle
-gradlew
-gradlew.bat
 gradle/
+*.pyc
