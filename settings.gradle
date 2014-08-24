@@ -1,2 +1,6 @@
 rootProject.name = 'exploreSOLID'
 
+
+include 'product'
+include 'variation'
+include 'claim'
