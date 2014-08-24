@@ -21,7 +21,7 @@
 (defn gradle [&rest args]
   (setv path (.getcwd os))
   (cd (join path pardir))
-  (apply .call [subprocess (+"./gradlew " (reduce add-whitespace args))] {"shell" true})
+  (apply .check_call [subprocess (+"./gradlew " (reduce add-whitespace args))] {"shell" true})
   (cd path))
 
 (defn run-gradle []
@@ -102,7 +102,7 @@
 
 (defn do-step [index]
   (git "checkout" (get (get-chapter index) "branch"))
-  (gradle "clean" "idea" "iM" "test")
+  (gradle "clean" "idea" "iM")
   (show-page index))
 
 
