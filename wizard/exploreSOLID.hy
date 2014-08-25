@@ -43,7 +43,7 @@
             <div class='inner'>
               <h3 class='masthead-brand'>Explore SOLID</h3>
               <ul class='nav masthead-nav'>
-                <li><a href='#'>Start</a></li>
+                <li><a href='/'>Start</a></li>
               </ul>
             </div>
           </div>
