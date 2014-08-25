@@ -7,33 +7,21 @@
 
 (def chapters [{"chapter" "Die Beispielanwendung"
                 "text" "<p>Start</p>"
-                "branch" "classic_t1"}
+                "branch" "master"}
                {"chapter" "DIP - Erster Schritt"
                 "text" "<p>...</p>"
-                "branch" "classic_t1_dip"}
+                "branch" "classic_t1"}
                {"chapter" "Die neue Anforderung"
                 "text" "<p>Neu!</p>"
                 "branch" "classic_t2"}])
 
-(defn add-whitespace [a b]
-  (+ a " " b))
+(defn index-chapters [l index]
+  (if (not (empty? l))
+    (do
+      (assoc (first l) "index" index)
+      (index-chapters (rest l) (inc index)))))
 
-(defn gradle [&rest args]
-  (setv path (.getcwd os))
-  (cd (join path pardir))
-  (apply .check_call [subprocess (+"./gradlew " (reduce add-whitespace args))] {"shell" true})
-  (cd path))
-
-(defn run-gradle []
-  (gradle "clean" "test"))
-
-(defn checkout [branch]
-  (git "checkout" branch))
-
-(def app (Bottle))
-
-(with-decorator (.route app "/hans")
-  (defn hans-route [] "Hello my Hans!"))
+(index-chapters chapters 0)
 
 (def base_tpl "<!DOCTYPE html>
 <html lang='en'>
@@ -88,31 +76,66 @@
   </body>
 </html>")
 
+(def app (Bottle))
 
-(defn get-chapter [index]
-  (get chapters index))
+(defn add-whitespace [a b]
+  (+ a " " b))
 
-(defn show-page [index]
-  (setv vars (dict (get-chapter index)))
+(defn gradle [&rest args]
+  (setv path (.getcwd os))
+  (cd (join path pardir))
+  (apply .check_call [subprocess (+"./gradlew " (reduce add-whitespace args))] {"shell" true})
+  (cd path))
+
+(defn git-checkout [branch]
+  (git "checkout" branch))
+
+(defn create-branch-filter [branch]
+  (fn [s] (= branch (get s "branch"))))
+
+(defn find-current-step [branch]
+  (setv step (nth (filter (create-branch-filter branch) chapters) 0))
+  (if (nil? step)
+    (nth chapters 0)
+    step))
+  
+(defn find-step [index]
+  (get (nth chapters index) "branch"))
+
+(defn find-prev-step [index]
+  (find-step (dec index)))
+
+(defn find-next-step [index]
+  (find-step (inc index)))
+
+(defn show-page [branch]
+  (setv current-step (find-current-step branch))
+  (setv index (get current-step "index"))
+  (setv vars (dict (find-current-step branch)))
   (if (= index 0)
     (assoc vars "prev" "#")
-    (assoc vars "prev" (+ "/" (str (dec index)))))
-  (assoc vars "next" (+ "/" (str (inc index))))
+    (assoc vars "prev" (+ "/" (find-prev-step index))))
+  (if (= index (- (len chapters) 1))
+    (assoc vars "next" "#")
+    (assoc vars "next" (+ "/" (find-next-step index))))
   (apply template [base_tpl] vars))
 
-(defn do-step [index]
-  (git "checkout" (get (get-chapter index) "branch"))
+(defn do-step [branch]
+  (git-checkout (get (find-current-step branch) "branch"))
   (gradle "clean" "idea" "iM")
-  (show-page index))
+  (show-page branch))
 
-
-(with-decorator (.route app "/")
-  (defn wizard-start [] (do-step 0)))
-
+(with-decorator (.route app "/favicon.ico")
+  (defn favicon [] nil))
 
 (with-decorator (.route app "/<step>")
-  (defn wizard [step] (do-step (int step))))
+  (defn wizard [step] (do-step step)))
 
-(apply run [app] {"host" "localhost"
+(with-decorator (.route app "/")
+  (defn wizard-start [] (do-step "master")))
+
+
+(if (= __name__"__main__")
+  (apply run [app] {"host" "localhost"
             "port" 8090
-            "debug" false})
+            "debug" false}))
