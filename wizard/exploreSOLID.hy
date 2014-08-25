@@ -16,7 +16,7 @@
                           Damit der Umfang der Beispielanwendung nicht zu groß wird, werden wir uns auf das 'O', das 'I' und das 'D' aus SOLID konzentrieren.
                        </p>
                        <p>
-                          Mit den zwei Buttons unten könnte ihr durch das Tutorial navigieren. Dadurch wird euer IntelliJ-Workspace eingerichtet.
+                          Mit den zwei Buttons unten könnt ihr durch das Tutorial navigieren. Dadurch wird euer IntelliJ-Workspace eingerichtet.
                           Das kann ein paar Sekunden dauern. Sobald die Seite vollständig geladen wurde, steht euer Workspace bereit.
                        </p>
                        <p> 
@@ -30,7 +30,7 @@
                           <li>Ein Werbespruch bezieht sich auf eine Variationen eines Produktes.</li>
                           <li>Werbesprüche sind immer nur für einen Tag gültig, werden aber mehrere Tage im Voraus gepflegt.</li>
                           <li>Werbesprüche werden als Templates gepflegt, in denen der Preis und das aktuelle Datum als Variable verwendet werden kann.</li>
-                          <li>In der ersten Version reicht es aus, wenn der Werbespruch nach System.out ausgegen wird.</li>
+                          <li>In der ersten Version reicht es aus, wenn der Werbespruch nach System.out ausgegeben wird.</li>
                         </ol>
                        </p>
                        <p>
@@ -58,24 +58,24 @@
                 "chapter" "Abhängig - aber richtig!"
                 "text" "<p>Nun sind die Abhängigkeiten der Klassen auf Compile-Ebene korrekt geordnet.</p>
                         <h2>Frage: Ist nun alles gut?</h2>
-                        <p>Die Frage beantwortet sich, wenn FT2-Adds im nächsten Schritt versucht das neue Feature 'Marke im Werbespruch' umzusetzen.</p>"
+                        <p>Die Frage beantwortet sich, wenn FT2-Ads im nächsten Schritt versucht das neue Feature 'Marke im Werbespruch' umzusetzen.</p>"
                 "branch" "classic_t1_dip"}
                {
                 "chapter" "Implizite Abhängigkeiten"
                 "text" "<p>Nun sind die Abhängigkeiten der Klassen auf Compile-Ebene korrekt geordnet.</p>
                         <h2>Frage: Ist nun alles gut?</h2>
-                        <p>Die Frage beantwortet sich, wenn FT2-Adds im nächsten Schritt versucht das neue Feature 'Marke im Werbespruch' umzusetzen.</p>"
+                        <p>Die Frage beantwortet sich, wenn FT2-Ads im nächsten Schritt versucht das neue Feature 'Marke im Werbespruch' umzusetzen.</p>"
                 "branch" "classic_t2_dip"}
                {
                 "chapter" "Naive OCP"
-                "text" "<p>Nun hat FT-Ads den Holzhammer herausgeholt und können nun alles was im Produkt oder an der Variation jetzt oder in Zukunft gespeichert wird im Werbespruch verwenden.
+                "text" "<p>Nun hat FT-Ads den Holzhammer herausgeholt: Alles was im Produkt oder an der Variation jetzt oder in Zukunft gespeichert wird kann nun im Werbespruch verwenden werden.
                            Claim ist also nun offen für Erweiterungen ('open') und Product und Variation sind geschlossen gegenüber Veränderungen,
                            die sich nur aus Anforderungen an das Modul Claim ergeben.</p>
                        <h2>Frage: Genügt die Umsetzung damit dem OC-Prinzip?</h2>"
                 "branch" "classic_t1_dip_ocp"}
                {
                 "chapter" "Append only"
-                "text" "<p>FT-Ads hat es nun eine stabile Abstraktion geschaffen, mit der sie die meisten möglichen zukünftigen Anforderungen nur durch das Hinzufügen von Code umsetzen können,
+                "text" "<p>FT-Ads hat nun eine stabile Abstraktion geschaffen, mit der sie die meisten möglichen zukünftigen Anforderungen nur durch das Hinzufügen von Code umsetzen können,
                            ohne dabei bestehenden Code ändern zu müssen. Natürlich sind auch Anforderungen denkbar, welche sich nicht durch eine ReplacingStrategy lösen lassen.
                            Das ist aber auch ok, weil wir nicht open für alle denkbaren Anforderungen sein können und auch nicht wollen, um kein hyper-generisches System pflegen zu müssen.
                            Um die richtigen Abstraktionen zu finden, ist es deshalb sehr vorteilhaft sich mit dem Product Owner über mögliche Richtungen abzustimmen,
