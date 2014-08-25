@@ -48,7 +48,7 @@
                 "branch" "classic_t1"}
                {"chapter" "Der Ripple-Effect"
                 "text" "<p>FT-Adds hat das DI-Prinzip verletzt. Die Klasse Product ist Compile-abhängig von Variation und Claim.
-                           Aus der Traum vom <a href='http://martinfowler.com/bliki/BoundedContext.html'>Bounded Context</a>
+                           Aus der Traum vom <a style='color:red;' href='http://martinfowler.com/bliki/BoundedContext.html'>Bounded Context</a>.
                            Eine weitere Konsequenz ist der Ripple-Effekt (dessen Auswirkungen auch als Veränderungsschockwellen bezeichnet werden).</p>
                         <p>Um diesen Effekt zu beobachten muss man sich nur anschauen, welche Stellen angepasst werden müssen,
                            um den Markennamen des Prouktes in den Werbesprüchen zu verwenden.</p>
@@ -56,8 +56,24 @@
                 "branch" "classic_t2"}
                {
                 "chapter" "Abhängig - aber richtig!"
-                "text" "jhjhjhjh"
-                "branch" "classic_t1_dip"}])
+                "text" "<p>Nun sind die Abhängigkeiten der Klassen auf Compile-Ebene korrekt geordnet.</p>
+                        <h2>Frage: Ist nun alles gut?</h2>
+                         <p>Die Frage beantwortet sich, wenn FT2-Adds im nächsten Schritt versucht das neue Feature 'Marke im Werbespruch' umzusetzen.</p>"
+                "branch" "classic_t1_dip"}
+               {
+                "chapter" "Implizite Abhängigkeiten"
+                "text" "<p>Nun sind die Abhängigkeiten der Klassen auf Compile-Ebene korrekt geordnet.</p>
+                        <h2>Frage: Ist nun alles gut?</h2>
+                         <p>Die Frage beantwortet sich, wenn FT2-Adds im nächsten Schritt versucht das neue Feature 'Marke im Werbespruch' umzusetzen.</p>"
+                "branch" "classic_t2_dip"}
+               {
+                "chapter" "t1_dip_ocp"
+                "text" "ihh"
+                "branch" "classic_t1_dip_ocp"}
+               {
+                "chapter" "t1_dip_ocp_isp"
+                "text" "ihh"
+                "branch" "classic_t1_dip_ocp_isp"}])
 
 (defn index-chapters [l index]
   (if (not (empty? l))
