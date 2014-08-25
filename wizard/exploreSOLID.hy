@@ -43,7 +43,8 @@
                           <li>Claim</li>
                           <li>IntegrationTest</li>
                         </ul>
-                       gleichzeitig in IntelliJ anzuzeigen.</p>"
+                       gleichzeitig in IntelliJ anzuzeigen.</p>
+                       <h2>Frage: Ist die Umsetzung SOLID? Wenn nein, welches SOLID-Prinzip hat FT-Adds bei der Umsetzung verletzt?</h2>"
                 "branch" "classic_t1"}
                {"chapter" "Die neue Anforderung"
                 "text" "<p>Neu!</p>"
