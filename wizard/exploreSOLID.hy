@@ -36,7 +36,7 @@
                        <p>
                           Wechselt jetzt in den Workspace um zu sehen wie FT-Adds das MVP umgesetzt hat.
                        </p>
-                       </p>Es ist hilfreich, die vier Hauptklassen
+                       <p>Es ist hilfreich, die vier Hauptklassen
                         <ul>
                           <li>Product</li>
                           <li>Variation</li>
