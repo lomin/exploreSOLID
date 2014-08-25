@@ -58,17 +58,20 @@
                 "chapter" "Abhängig - aber richtig!"
                 "text" "<p>Nun sind die Abhängigkeiten der Klassen auf Compile-Ebene korrekt geordnet.</p>
                         <h2>Frage: Ist nun alles gut?</h2>
-                         <p>Die Frage beantwortet sich, wenn FT2-Adds im nächsten Schritt versucht das neue Feature 'Marke im Werbespruch' umzusetzen.</p>"
+                        <p>Die Frage beantwortet sich, wenn FT2-Adds im nächsten Schritt versucht das neue Feature 'Marke im Werbespruch' umzusetzen.</p>"
                 "branch" "classic_t1_dip"}
                {
                 "chapter" "Implizite Abhängigkeiten"
                 "text" "<p>Nun sind die Abhängigkeiten der Klassen auf Compile-Ebene korrekt geordnet.</p>
                         <h2>Frage: Ist nun alles gut?</h2>
-                         <p>Die Frage beantwortet sich, wenn FT2-Adds im nächsten Schritt versucht das neue Feature 'Marke im Werbespruch' umzusetzen.</p>"
+                        <p>Die Frage beantwortet sich, wenn FT2-Adds im nächsten Schritt versucht das neue Feature 'Marke im Werbespruch' umzusetzen.</p>"
                 "branch" "classic_t2_dip"}
                {
-                "chapter" "t1_dip_ocp"
-                "text" "ihh"
+                "chapter" "Naive OCP"
+                "text" "<p>Nun haben wir den Holzhammer herausgeholt und können nun alles was im Produkt oder an der Variation jetzt oder in Zukunft gespeichert wird im Werbespruch verwenden.
+                           Wir sind also nun offen für Erweiterungen ('open') und haben Product und Variation geschlossen gegenüber Veränderungen,
+                           die sich nur aus Anforderungen an das Modul Claim ergeben.</p>
+                       <h2>Frage: Genügt die Umsetzung damit dem OC-Prinzip?</h2>"
                 "branch" "classic_t1_dip_ocp"}
                {
                 "chapter" "t1_dip_ocp_isp"
