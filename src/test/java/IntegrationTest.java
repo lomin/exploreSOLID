@@ -16,17 +16,18 @@ public class IntegrationTest {
 
     @Test
     public void integrationTest() throws Exception {
+        Claim.ReplacingStrategy strategies = new Claim.ReplacingStrategyList(new DateReplacement(), new PriceReplacement());
         Product.Renderer renderer = Mockito.mock(Product.Renderer.class);
         Product product = new Product();
         Variation v1 = new Variation();
         v1.setPrice(3);
-        v1.addClaim(new Claim("Nur #price# heute!", DATE_2014_01_01));
-        v1.addClaim(new Claim("Nur #price# für #year#!", DATE_2013_01_01));
+        v1.addClaim(new Claim("Nur #price# heute!", DATE_2014_01_01, strategies));
+        v1.addClaim(new Claim("Nur #price# für #year#!", DATE_2013_01_01, strategies));
         product.addVariation(v1);
         Variation v2 = new Variation();
         v2.setPrice(5);
-        v2.addClaim(new Claim("Unschlagbare #price# nur dieses Jahr!", DATE_2013_01_01));
-        v2.addClaim(new Claim("#price# im Jahr #year#!", DATE_2014_01_01));
+        v2.addClaim(new Claim("Unschlagbare #price# nur dieses Jahr!", DATE_2013_01_01, strategies));
+        v2.addClaim(new Claim("#price# im Jahr #year#!", DATE_2014_01_01, strategies));
         product.addVariation(v2);
 
         product.render(renderer, DATE_2014_01_01);
@@ -34,5 +35,21 @@ public class IntegrationTest {
         verify(renderer).render("Nur 3€ heute!");
         verify(renderer).render("5€ im Jahr 2014!");
         verifyNoMoreInteractions(renderer);
+    }
+
+    private static class DateReplacement implements Claim.ReplacingStrategy {
+
+        @Override
+        public String replace(String source, DateTime date, Product product, Variation variation) {
+            return source.replaceAll("#year#", String.valueOf(date.getYear()));
+        }
+    }
+
+    private static class PriceReplacement implements Claim.ReplacingStrategy {
+
+        @Override
+        public String replace(String source, DateTime date, Product product, Variation variation) {
+            return source.replaceAll("#price#", String.valueOf(variation.getPrice()) + "€");
+        }
     }
 }
