@@ -7,11 +7,11 @@
 
 (def chapters [{"chapter" "Einleitung"
                 "text" "<p>Um die SOLID-Prinzipien kennenzulernen werden wir die Entwicklung einer Beispielanwendung verfolgen.
-                        Ihr beobachtet das Team FT-Adds dabei ein System nach SOLID zu entwicklen um Werbesprüche für Produkte anzuzeigen.
+                        Ihr beobachtet das Team FT-Ads dabei ein System nach SOLID zu entwicklen um Werbesprüche für Produkte anzuzeigen.
                         Dafür solltet ihr das 'exploreSOLID'-Projekt als Gradle-Projekt in IntelliJ importieren.</p>
                        <p>Wir werden das Beispiel und die Implementierung bewusst simpel halten.
-                          Deshalb kann es gut sein, dass ihr überhaupt nicht einverstanden seid, wie FT-Adds Features umsetzt.
-                          Macht euch dann bewusst, dass FT-Adds noch unsicher ist, wie man SOLID-Code erreicht.</p>
+                          Deshalb kann es gut sein, dass ihr überhaupt nicht einverstanden seid, wie FT-Ads Features umsetzt.
+                          Macht euch dann bewusst, dass FT-Ads noch unsicher ist, wie man SOLID-Code erreicht.</p>
                        <p>
                           Damit der Umfang der Beispielanwendung nicht zu groß wird, werden wir uns auf das 'O', das 'I' und das 'D' aus SOLID konzentrieren.
                        </p>
@@ -20,7 +20,7 @@
                           Das kann ein paar Sekunden dauern. Sobald die Seite vollständig geladen wurde, steht euer Workspace bereit.
                        </p>
                        <p> 
-                          Wenn ihr soweit seid, klickt auf 'Next Step' um zu sehen, wie FT-Adds die ersten Anforderungen an das neue System umsetzt.
+                          Wenn ihr soweit seid, klickt auf 'Next Step' um zu sehen, wie FT-Ads die ersten Anforderungen an das neue System umsetzt.
                        </p>"
                 "branch" "master"}
                {"chapter" "Das MVP"
@@ -34,7 +34,7 @@
                         </ol>
                        </p>
                        <p>
-                          Wechselt jetzt in den Workspace um zu sehen wie FT-Adds das MVP umgesetzt hat.
+                          Wechselt jetzt in den Workspace um zu sehen wie FT-Ads das MVP umgesetzt hat.
                        </p>
                        <p>Es ist hilfreich, die vier Hauptklassen
                         <ul>
@@ -44,15 +44,15 @@
                           <li>IntegrationTest</li>
                         </ul>
                        gleichzeitig in IntelliJ anzuzeigen.</p>
-                       <h2>Frage: Ist die Umsetzung SOLID? Wenn nein, welches SOLID-Prinzip hat FT-Adds bei der Umsetzung verletzt?</h2>"
+                       <h2>Frage: Ist die Umsetzung SOLID? Wenn nein, welches SOLID-Prinzip hat FT-Ads bei der Umsetzung verletzt?</h2>"
                 "branch" "classic_t1"}
                {"chapter" "Der Ripple-Effect"
-                "text" "<p>FT-Adds hat das DI-Prinzip verletzt. Die Klasse Product ist Compile-abhängig von Variation und Claim.
+                "text" "<p>FT-Ads hat das DI-Prinzip verletzt. Die Klasse Product ist Compile-abhängig von Variation und Claim.
                            Aus der Traum vom <a style='color:red;' href='http://martinfowler.com/bliki/BoundedContext.html'>Bounded Context</a>.
                            Eine weitere Konsequenz ist der Ripple-Effekt (dessen Auswirkungen auch als Veränderungsschockwellen bezeichnet werden).</p>
                         <p>Um diesen Effekt zu beobachten muss man sich nur anschauen, welche Stellen angepasst werden müssen,
                            um den Markennamen des Prouktes in den Werbesprüchen zu verwenden.</p>
-                        <p>Der nächste Schritt ist eigentlich einer zurück. FT-Adds löst zuerst die Verletzung des DI-Prinzips auf, bevor es eine neue Anforderung umsetzt."
+                        <p>Der nächste Schritt ist eigentlich einer zurück. FT-Ads löst zuerst die Verletzung des DI-Prinzips auf, bevor es eine neue Anforderung umsetzt."
                 "branch" "classic_t2"}
                {
                 "chapter" "Abhängig - aber richtig!"
@@ -68,15 +68,25 @@
                 "branch" "classic_t2_dip"}
                {
                 "chapter" "Naive OCP"
-                "text" "<p>Nun haben wir den Holzhammer herausgeholt und können nun alles was im Produkt oder an der Variation jetzt oder in Zukunft gespeichert wird im Werbespruch verwenden.
-                           Wir sind also nun offen für Erweiterungen ('open') und haben Product und Variation geschlossen gegenüber Veränderungen,
+                "text" "<p>Nun hat FT-Ads den Holzhammer herausgeholt und können nun alles was im Produkt oder an der Variation jetzt oder in Zukunft gespeichert wird im Werbespruch verwenden.
+                           Claim ist also nun offen für Erweiterungen ('open') und Product und Variation sind geschlossen gegenüber Veränderungen,
                            die sich nur aus Anforderungen an das Modul Claim ergeben.</p>
                        <h2>Frage: Genügt die Umsetzung damit dem OC-Prinzip?</h2>"
                 "branch" "classic_t1_dip_ocp"}
                {
-                "chapter" "t1_dip_ocp_isp"
-                "text" "ihh"
-                "branch" "classic_t1_dip_ocp_isp"}])
+                "chapter" "Append only"
+                "text" "<p>FT-Ads hat es nun eine stabile Abstraktion geschaffen, mit der sie die meisten möglichen zukünftigen Anforderungen nur durch das Hinzufügen von Code umsetzen können,
+                           ohne dabei bestehenden Code ändern zu müssen. Natürlich sind auch Anforderungen denkbar, welche sich nicht durch eine ReplacingStrategy lösen lassen.
+                           Das ist aber auch ok, weil wir nicht open für alle denkbaren Anforderungen sein können und auch nicht wollen, um kein hyper-generisches System pflegen zu müssen.
+                           Um die richtigen Abstraktionen zu finden, ist es deshalb sehr vorteilhaft sich mit dem Product Owner über mögliche Richtungen abzustimmen,
+                           in die sich das System entwickeln kann.</p>
+                        <h2>Frage: Ist der Code endlich SOLID?</h2>
+                        <p>Nein. Wer findet den Werwolf?</p>"
+                "branch" "classic_t1_dip_ocp_add_only"}
+               {
+                "chapter" "Das Interface Segregation Principle"
+                "text" "..."
+                "branch" "classic_t1_dip_ocp_add_only_isp"}])
 
 (defn index-chapters [l index]
   (if (not (empty? l))
@@ -184,6 +194,7 @@
   (apply template [base_tpl] vars))
 
 (defn do-step [branch]
+  (git "stash")
   (git-checkout (get (find-current-step branch) "branch"))
   (gradle "clean" "idea" "iM")
   (show-page branch))
