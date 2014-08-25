@@ -8,15 +8,7 @@
 (def chapters [{"chapter" "Einleitung"
                 "text" "<p>Um die SOLID-Prinzipien kennenzulernen werden wir die Entwicklung einer Beispielanwendung verfolgen.
                         Ihr beobachtet das Team FT-Adds dabei ein System nach SOLID zu entwicklen um Werbesprüche für Produkte anzuzeigen.
-                        Dafür solltet ihr das 'exploreSOLID'-Projekt als Gradle-Projekt in IntelliJ importieren.
-                        Es ist hilfreich, die vier Hauptklassen</p>
-                        <ul>
-                          <li>Product</li>
-                          <li>Variation</li>
-                          <li>Claim</li>
-                          <li>IntegrationTest</li>
-                        </ul>
-                       <p>gleichzeitig in IntelliJ anzuzeigen.</p>
+                        Dafür solltet ihr das 'exploreSOLID'-Projekt als Gradle-Projekt in IntelliJ importieren.</p>
                        <p>Wir werden das Beispiel und die Implementierung bewusst simpel halten.
                           Deshalb kann es gut sein, dass ihr überhaupt nicht einverstanden seid, wie FT-Adds Features umsetzt.
                           Macht euch dann bewusst, dass FT-Adds noch unsicher ist, wie man SOLID-Code erreicht.</p>
@@ -42,8 +34,16 @@
                         </ol>
                        </p>
                        <p>
-                         
-                       </p>"
+                          Wechselt jetzt in den Workspace um zu sehen wie FT-Adds das MVP umgesetzt hat.
+                       </p>
+                       </p>Es ist hilfreich, die vier Hauptklassen
+                        <ul>
+                          <li>Product</li>
+                          <li>Variation</li>
+                          <li>Claim</li>
+                          <li>IntegrationTest</li>
+                        </ul>
+                       gleichzeitig in IntelliJ anzuzeigen.</p>"
                 "branch" "classic_t1"}
                {"chapter" "Die neue Anforderung"
                 "text" "<p>Neu!</p>"
