@@ -1,11 +1,12 @@
 import dip.claim.Claim;
+import dip.claim.DateReplacement;
+import dip.claim.PriceReplacement;
 import dip.product.Product;
 import dip.variation.Variation;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 
@@ -37,19 +38,4 @@ public class IntegrationTest {
         verifyNoMoreInteractions(renderer);
     }
 
-    private static class DateReplacement implements Claim.ReplacingStrategy {
-
-        @Override
-        public String replace(String source, DateTime date, Product product, Variation variation) {
-            return source.replaceAll("#year#", String.valueOf(date.getYear()));
-        }
-    }
-
-    private static class PriceReplacement implements Claim.ReplacingStrategy {
-
-        @Override
-        public String replace(String source, DateTime date, Product product, Variation variation) {
-            return source.replaceAll("#price#", String.valueOf(variation.getPrice()) + "€");
-        }
-    }
 }
