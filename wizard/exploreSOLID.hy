@@ -5,11 +5,45 @@
         [os.path [abspath join]]
         [bottle [Bottle run template]])
 
-(def chapters [{"chapter" "Die Beispielanwendung"
-                "text" "<p>Start</p>"
+(def chapters [{"chapter" "Einleitung"
+                "text" "<p>Um die SOLID-Prinzipien kennenzulernen werden wir die Entwicklung einer Beispielanwendung verfolgen.
+                        Ihr beobachtet das Team FT-Adds dabei ein System nach SOLID zu entwicklen um Werbesprüche für Produkte anzuzeigen.
+                        Dafür solltet ihr das 'exploreSOLID'-Projekt als Gradle-Projekt in IntelliJ importieren.
+                        Es ist hilfreich, die vier Hauptklassen</p>
+                        <ul>
+                          <li>Product</li>
+                          <li>Variation</li>
+                          <li>Claim</li>
+                          <li>IntegrationTest</li>
+                        </ul>
+                       <p>gleichzeitig in IntelliJ anzuzeigen.</p>
+                       <p>Wir werden das Beispiel und die Implementierung bewusst simpel halten.
+                          Deshalb kann es gut sein, dass ihr überhaupt nicht einverstanden seid, wie FT-Adds Features umsetzt.
+                          Macht euch dann bewusst, dass FT-Adds noch unsicher ist, wie man SOLID-Code erreicht.</p>
+                       <p>
+                          Damit der Umfang der Beispielanwendung nicht zu groß wird, werden wir uns auf das 'O', das 'I' und das 'D' aus SOLID konzentrieren.
+                       </p>
+                       <p>
+                          Mit den zwei Buttons unten könnte ihr durch das Tutorial navigieren. Dadurch wird euer IntelliJ-Workspace eingerichtet.
+                          Das kann ein paar Sekunden dauern. Sobald die Seite vollständig geladen wurde, steht euer Workspace bereit.
+                       </p>
+                       <p> 
+                          Wenn ihr soweit seid, klickt auf 'Next Step' um zu sehen, wie FT-Adds die ersten Anforderungen an das neue System umsetzt.
+                       </p>"
                 "branch" "master"}
-               {"chapter" "DIP - Erster Schritt"
-                "text" "<p>...</p>"
+               {"chapter" "Das MVP"
+                "text" "<p>Die erste Version soll folgende Feature beinhalten:</p>
+                         <ol>
+                          <li>Die Werbesprüche werden von den Marketing-Experten gepflegt und sind ab sofort im Produkt-Export des Teams 'Datenversorgung' enthalten.</li>
+                          <li>Ein Werbespruch bezieht sich auf eine Variationen eines Produktes.</li>
+                          <li>Werbesprüche sind immer nur für einen Tag gültig, werden aber mehrere Tage im Voraus gepflegt.</li>
+                          <li>Werbesprüche werden als Templates gepflegt, in denen der Preis und das aktuelle Datum als Variable verwendet werden kann.</li>
+                          <li>In der ersten Version reicht es aus, wenn der Werbespruch nach System.out ausgegen wird.</li>
+                        </ol>
+                       </p>
+                       <p>
+                         
+                       </p>"
                 "branch" "classic_t1"}
                {"chapter" "Die neue Anforderung"
                 "text" "<p>Neu!</p>"
@@ -50,7 +84,9 @@
 
           <div class='inner cover'>
             <h1 class='cover-heading'>{{chapter}}</h1>
-            {{!text}}
+            <div style='text-align:left;'>
+              {{!text}}
+            </div>
             <p class='lead'>
               <a href='{{prev}}' class='btn btn-lg btn-default'>Previous Step</a>
               <a href='{{next}}' class='btn btn-lg btn-primary'>Next Step</a>
