@@ -41,11 +41,9 @@
 
           <div class='masthead clearfix'>
             <div class='inner'>
-              <h3 class='masthead-brand'>Cover</h3>
+              <h3 class='masthead-brand'>Explore SOLID</h3>
               <ul class='nav masthead-nav'>
-                <li class='active'><a href='#'>Home</a></li>
-                <li><a href='#'>Features</a></li>
-                <li><a href='#'>Contact</a></li>
+                <li><a href='#'>Start</a></li>
               </ul>
             </div>
           </div>
@@ -61,7 +59,7 @@
 
           <div class='mastfoot'>
             <div class='inner'>
-              <p>Cover template for <a href='http://getbootstrap.com'>Bootstrap</a>, by <a href='https://twitter.com/mdo'>@mdo</a>.</p>
+              <p>SOLID Workshop for FT2</p>
             </div>
           </div>
 
