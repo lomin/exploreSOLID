@@ -1,6 +1,8 @@
 package dip.claim;
 
 import dip.product.Product;
+import dip.product.ReadOnlyProduct;
+import dip.variation.Buyable;
 import dip.variation.Variation;
 import org.joda.time.DateTime;
 
@@ -17,14 +19,14 @@ public class Claim implements Variation.Renderable {
     }
 
     @Override
-    public void render(Product.Renderer renderer, DateTime time, Product product, Variation variation) {
+    public void render(Product.Renderer renderer, DateTime time, ReadOnlyProduct product, Buyable variation) {
         if (time.equals(date)) {
             renderer.render(replacingStrategy.replace(template, date, product, variation));
         }
     }
 
     public static interface ReplacingStrategy {
-        String replace(String source, DateTime date, Product product, Variation variation);
+        String replace(String source, DateTime date, ReadOnlyProduct product, Buyable variation);
     }
 
     public static class ReplacingStrategyList implements ReplacingStrategy {
@@ -35,7 +37,7 @@ public class Claim implements Variation.Renderable {
         }
 
         @Override
-        public String replace(String source, DateTime date, Product product, Variation variation) {
+        public String replace(String source, DateTime date, ReadOnlyProduct product, Buyable variation) {
             for (ReplacingStrategy strategy : strategies) {
                 source = strategy.replace(source, date, product, variation);
             }

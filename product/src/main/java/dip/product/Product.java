@@ -5,7 +5,7 @@ import org.joda.time.DateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Product {
+public class Product implements ReadOnlyProduct {
 
     private List<Renderable> variations = new ArrayList<>();
 
@@ -20,7 +20,7 @@ public class Product {
     }
 
     public static interface Renderable {
-        void render(Renderer r, DateTime time, Product product);
+        void render(Renderer r, DateTime time, ReadOnlyProduct product);
     }
 
     public static class Renderer {

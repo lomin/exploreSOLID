@@ -1,12 +1,13 @@
 package dip.variation;
 
+import dip.product.Product;
+import dip.product.ReadOnlyProduct;
 import org.joda.time.DateTime;
 
 import java.util.ArrayList;
 import java.util.List;
-import dip.product.Product;
 
-public class Variation implements Product.Renderable {
+public class Variation implements Product.Renderable, Buyable {
 
     private List<Renderable> claims = new ArrayList<>();
 
@@ -25,13 +26,14 @@ public class Variation implements Product.Renderable {
     }
 
     @Override
-    public void render(Product.Renderer r, DateTime time, Product product) {
+    public void render(Product.Renderer r, DateTime time, ReadOnlyProduct product) {
         for (Renderable claim : claims) {
             claim.render(r, time, product, this);
         }
     }
 
     public static interface Renderable {
-        void render(Product.Renderer renderer, DateTime time, Product product, Variation variation);
+        void render(Product.Renderer renderer, DateTime time, ReadOnlyProduct product, Buyable variation);
     }
+
 }
