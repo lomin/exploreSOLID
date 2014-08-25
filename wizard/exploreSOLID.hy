@@ -86,14 +86,14 @@
                {
                 "chapter" "Das Interface Segregation Principle"
                 "text" "<p>FT-Ads hat den Bug gefunden und durch die Erfüllung des Interface Segregation Principle sichergestellt, dass diese Art von Fehler nicht mehr auftreten kann.
-                           Zusätzlich wurde die Kopplung zum Produkt verringert, so dass ein Claim nun mit beliebigeb Implementation von 'ReadOnlyProduct' arbeiten kann.</p>
+                           Zusätzlich wurde die Kopplung zum Produkt verringert, so dass ein Claim nun mit beliebigen Implementation von 'ReadOnlyProduct' arbeiten kann.</p>
                         <p>Ironischerweise ist die Anwendung nun weniger 'open/closed' hinsichtlich des Renderings eines Werbespruchs als zuvor.
                            Sollen weitere Attribute einer Variation im Werbespruch aufgenommen werden (beispielsweise die Farbe), kann FT-Ads nicht mehr das Interface Buyable verwenden.</p>
                         <p>
                            Sie könnten ähnlich wie beim Produkt mit einer ReadOnlyVariation arbeiten, die alle Attribute mit lesendem Zugriff zur Verfügung stellt. Wie auch beim
                            beim ReadOnlyProduct ist jedoch nur eine Frage der Zeit, bis man mit dieser Variante erneut gegen das ISP verstößt
                            ('Many client specific interfaces are better than one general purpose interface'). Auch wenn durch ein ReadOnly-Interface keine Seiten-Effekte autreten können,
-                           so schafft es doch unnötige Kopplung, reduziert damit die Wiederverwendung in einem anderen Kontext und vergrößert den <a style='color:red;' href='http://martinfowler.com/bliki/BoundedContext.html'>Bounded Context</a>.
+                           so schafft es doch unnötige Kopplung, reduziert damit die Wiederverwendung und vergrößert den <a style='color:red;' href='http://martinfowler.com/bliki/BoundedContext.html'>Bounded Context</a>.
                        </p>
                        <p>
                            Die andere Variante wäre, dass die Klasse Variation ein Interface implementiert, das im Modul Variation liegt, aber nur die Attribute veröffentlicht, welche für
@@ -101,7 +101,7 @@
                            aber immer wenn eine neue Information der Variation im Werbespruch benötigt wird, müsste man das Modul Variation anpassen (um das spezifische Interface zu ändern).
                            Das Modul Variation wäre somit implizit abhängig von Claim-Modul.
                        </p>
-                       <h3>Food For Thought: Wie sehe die Anwendung komplett nach SOLID aus? Und will man das eigentlich?</h3>"
+                       <h3>Food For Thought: Wie sähe die Anwendung komplett nach SOLID aus? Und will man das eigentlich?</h3>"
                 "branch" "classic_t1_dip_ocp_add_only_isp"}])
 
 (defn index-chapters [l index]
