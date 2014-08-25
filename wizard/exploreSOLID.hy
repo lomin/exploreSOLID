@@ -49,8 +49,8 @@
                {"chapter" "Der Ripple-Effect"
                 "text" "<p>FT-Ads hat das DI-Prinzip verletzt. Die Klasse Product ist Compile-abhängig von Variation und Claim.
                            Aus der Traum vom <a style='color:red;' href='http://martinfowler.com/bliki/BoundedContext.html'>Bounded Context</a>.
-                           Eine weitere Konsequenz ist der Ripple-Effekt (dessen Auswirkungen auch als Veränderungsschockwellen bezeichnet werden).</p>
-                        <p>Um diesen Effekt zu beobachten muss man sich nur anschauen, welche Stellen angepasst werden müssen,
+                           Eine weitere Konsequenz ist der Ripple-Effect (dessen Auswirkungen auch als Veränderungsschockwellen bezeichnet werden).</p>
+                        <p>Um diesen Effect zu beobachten muss man sich nur anschauen, welche Stellen angepasst werden müssen,
                            um den Markennamen des Prouktes in den Werbesprüchen zu verwenden.</p>
                         <p>Der nächste Schritt ist eigentlich einer zurück. FT-Ads löst zuerst die Verletzung des DI-Prinzips auf, bevor es eine neue Anforderung umsetzt."
                 "branch" "classic_t2"}
@@ -62,9 +62,12 @@
                 "branch" "classic_t1_dip"}
                {
                 "chapter" "Implizite Abhängigkeiten"
-                "text" "<p>Nun sind die Abhängigkeiten der Klassen auf Compile-Ebene korrekt geordnet.</p>
-                        <h2>Frage: Ist nun alles gut?</h2>
-                        <p>Die Frage beantwortet sich, wenn FT2-Ads im nächsten Schritt versucht das neue Feature 'Marke im Werbespruch' umzusetzen.</p>"
+                "text" "<p>Die Änderung um das DI-Prinzip zu erfüllen hatte keinen Einfluss auf den Ripple-Effect. Statt einer expliziten Abhängigkeit auf Compile-Ebene liegt nun eine
+                           implizite Abhängigkeit zu Claim vor: Claim braucht die Marke eines Produktes, also müssen die Klassen Produkt und Variation geändert werden um die Marke
+                           bis zu Claim herunter zu reichen. Dass der Ripple-Effect weiterhin auftritt ist nicht verwunderlich,
+                           denn die Berücksichtigung der Marke im Werbespruch ist eine neue Anforderung.
+                           Um den Ripple-Effect bei neuen Anforderungen zu bekämpfen muss man dan Open/Closed-Prinzip berücksichtigen. Die Invertierung der Abhängigkeiten war jedoch
+                           nicht umsonst, sondern ist Voraussetzung um das OC-Prinzip zu realisieren."
                 "branch" "classic_t2_dip"}
                {
                 "chapter" "Naive OCP"
@@ -92,7 +95,7 @@
                         <p>
                            Sie könnten ähnlich wie beim Produkt mit einer ReadOnlyVariation arbeiten, die alle Attribute mit lesendem Zugriff zur Verfügung stellt. Wie auch beim
                            beim ReadOnlyProduct ist jedoch nur eine Frage der Zeit, bis man mit dieser Variante erneut gegen das ISP verstößt
-                           ('Many client specific interfaces are better than one general purpose interface'). Auch wenn durch ein ReadOnly-Interface keine Seiten-Effekte autreten können,
+                           ('Many client specific interfaces are better than one general purpose interface'). Auch wenn durch ein ReadOnly-Interface keine Seiten-Effecte autreten können,
                            so schafft es doch unnötige Kopplung, reduziert damit die Wiederverwendung und vergrößert den <a style='color:red;' href='http://martinfowler.com/bliki/BoundedContext.html'>Bounded Context</a>.
                        </p>
                        <p>
