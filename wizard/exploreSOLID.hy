@@ -46,9 +46,18 @@
                        gleichzeitig in IntelliJ anzuzeigen.</p>
                        <h2>Frage: Ist die Umsetzung SOLID? Wenn nein, welches SOLID-Prinzip hat FT-Adds bei der Umsetzung verletzt?</h2>"
                 "branch" "classic_t1"}
-               {"chapter" "Die neue Anforderung"
-                "text" "<p>Neu!</p>"
-                "branch" "classic_t2"}])
+               {"chapter" "Der Ripple-Effect"
+                "text" "<p>FT-Adds hat das DI-Prinzip verletzt. Die Klasse Product ist Compile-abhängig von Variation und Claim.
+                           Aus der Traum vom <a href='http://martinfowler.com/bliki/BoundedContext.html'>Bounded Context</a>
+                           Eine weitere Konsequenz ist der Ripple-Effekt (dessen Auswirkungen auch als Veränderungsschockwellen bezeichnet werden).</p>
+                        <p>Um diesen Effekt zu beobachten muss man sich nur anschauen, welche Stellen angepasst werden müssen,
+                           um den Markennamen des Prouktes in den Werbesprüchen zu verwenden.</p>
+                        <p>Der nächste Schritt ist eigentlich einer zurück. FT-Adds löst zuerst die Verletzung des DI-Prinzips auf, bevor es eine neue Anforderung umsetzt."
+                "branch" "classic_t2"}
+               {
+                "chapter" "Abhängig - aber richtig!"
+                "text" "jhjhjhjh"
+                "branch" "classic_t1_dip"}])
 
 (defn index-chapters [l index]
   (if (not (empty? l))
