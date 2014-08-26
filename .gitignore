@@ -9,5 +9,5 @@ build
 *.settings
 *.project
 .gradle
-gradle/
 *.pyc
+start
