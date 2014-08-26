@@ -9,6 +9,10 @@ repositories {
     mavenCentral()
 }
 
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.0'
+}
+
 dependencies {
     compile project(':product')
     compile project(':variation')
